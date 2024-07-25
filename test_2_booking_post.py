@@ -72,5 +72,8 @@ def test_create_booking():
         assert 'additionalneeds' in response_booking, "'additionalneeds' key not found in response"
         assert response_booking['additionalneeds'] == data['additionalneeds'], f"Expected additionalneeds to be {data['additionalneeds']} but got '{response_booking['additionalneeds']}'"
 
+    with allure.step('Printing response'):
+        allure.attach(response.text, 'Response', allure.attachment_type.JSON)
+
     global my_bookingid
     my_bookingid = response_data['bookingid']

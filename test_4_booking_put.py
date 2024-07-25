@@ -70,6 +70,8 @@ def test_update_booking():
         assert body['additionalneeds'] == response_data[
             'additionalneeds'], f"Expected additionalneeds to be {body['additionalneeds']}, but got {response_data['additionalneeds']}"
 
+    with allure.step('Printing response'):
+        allure.attach(response.text, 'Response', allure.attachment_type.JSON)
 
 @pytest.mark.regression
 @allure.feature('Booking Feature')

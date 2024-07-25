@@ -66,3 +66,6 @@ def test_get_booking_by_id():
 
     with allure.step('Verify the value of "totalprice" is a number'):
         assert isinstance(response_data['totalprice'], (int, float)), 'Total price should be a number'
+
+    with allure.step('Printing response'):
+        allure.attach(response.text, 'Response', allure.attachment_type.JSON)

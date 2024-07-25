@@ -58,6 +58,8 @@ def test_partial_update_booking():
     with allure.step('Verify additionalneeds is present in response'):
         assert 'additionalneeds' in response_data, "'additionalneeds' key not found in response"
 
+    with allure.step('Printing response'):
+        allure.attach(response.text, 'Response', allure.attachment_type.JSON)
 
 @allure.feature('Booking Feature')
 @allure.suite('Partial Update Booking Suite')
